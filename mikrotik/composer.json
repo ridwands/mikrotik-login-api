@@ -1,0 +1,13 @@
+{
+    "name": "ridwands/mikrotik",
+    "description": "Mikrotik Login",
+    "authors": [
+        {
+            "name": "ridwands",
+            "email": "ridwanfps@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.10"
+    }
+}
