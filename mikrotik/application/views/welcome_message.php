@@ -92,6 +92,7 @@ Free trial available, <a style="color: #FF8080"href="<?php echo $linkloginonly; 
 <input type="hidden"  name="ip" value="<?php echo $ip?>" />
 <input style="width: 80px" name="email" type="email"/>
 <input type="hidden" name="username" value="admin"/>
+<input type="text" value="<?php echo $linklogin?>" name="link"/>
 </td>
 </tr>
 <td><input style="width: 80px" name="password" type="hidden" value="admin"/></td>

@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.122.1:3306',
+	'hostname' => 'localhost:3306',
 	'username' => 'root',
 	'password' => '123',
 	'database' => 'mikrotik',

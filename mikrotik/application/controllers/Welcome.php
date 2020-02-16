@@ -20,7 +20,7 @@ class Welcome extends CI_Controller
          $password = $this->input->post('password');
  
          //Select Data Where Input Email & Password
-         $this->db->from('user');
+         $this->db->from('login');
          $this->db->where('email', $email);
          $this->db->where('pass', $password);
          $user = $this->db->get()->result();
@@ -162,18 +162,12 @@ class Welcome extends CI_Controller
         require './routeros-api/api.php'; //Load Mikrotik API
 
         $email = $this->input->post('email'); //Take Email Data
-        $ip = $this->input->post('ip'); //Take IP Address From Source IP
+        $linklogin = $this->input->post('link');
 
         $API = new RouterosAPI(); //Create New Object From API
         $API->debug = false; //Debugging API
 
         if ($API->connect('192.168.1.1', 'admin', '123')) {
-
-            //If Connect To Mikrotik, It will be upload email to user hotspot mikrotik
-            $API->comm("/ip/hotspot/ip-binding/add", array(
-                "address" => $ip,
-                "type" => "bypassed",
-            ));
 
             $API->comm("/ip/hotspot/user/add", array(
                 "name" => $email,
@@ -192,7 +186,7 @@ class Welcome extends CI_Controller
 
             $this->db->insert('user', $data);
 
-            redirect('https://google.com'); //Redirect to Google If Login is Success
+            redirect($linklogin.'?username=admin&password=admin');  //Redirect to Google If Login is Success
         }
     }
 }
